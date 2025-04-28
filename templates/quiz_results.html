@@ -1,0 +1,23 @@
+<!doctype html>
+<title>Quiz Results</title>
+<h1>Results for {{ quiz.subject }}</h1>
+<table border="1">
+<tr>
+{% if show_names %}
+    <th>Name</th>
+{% else %}
+    <th>Student ID</th>
+{% endif %}
+<th>Score</th>
+</tr>
+{% for result in results %}
+<tr>
+{% if show_names %}
+    <td>{{ result.first_name }} {{ result.last_name }}</td>
+{% else %}
+    <td>{{ result.student_id }}</td>
+{% endif %}
+<td>{{ result.score }}</td>
+</tr>
+{% endfor %}
+</table>
